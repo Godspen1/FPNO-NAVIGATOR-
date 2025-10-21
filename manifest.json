@@ -1,0 +1,9 @@
+{
+  "short_name": "FPNO",
+  "name": "FPNO Navigator",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#49AF50",
+  "icons": []
+}
