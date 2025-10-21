@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Directory — FPNO Navigator</title>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#49AF50">
+  <style>
+    body{font-family:Arial;margin:0;background:#f6fff6;color:#111}
+    header{background:#49AF50;padding:12px 18px;color:#fff;display:flex;justify-content:space-between}
+    .wrap{max-width:900px;margin:18px auto;padding:18px}
+    .card{background:#fff;padding:18px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+    input{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;margin-bottom:12px}
+    table{width:100%;border-collapse:collapse}
+    td,th{padding:10px;border-bottom:1px solid #eee}
+    th{text-align:left}
+    .back{display:inline-block;margin-top:12px;color:#49AF50;text-decoration:none;font-weight:700}
+  </style>
+</head>
+<body>
+  <header>
+    <div>FPNO Navigator — Directory</div>
+    <nav>
+      <a href="/index.html" style="color:#fff">Home</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="card">
+      <h2>Campus Directory</h2>
+      <p>Search departments or offices</p>
+      <input id="q" placeholder="Type to filter (e.g., Library, Registry)" oninput="filter()" />
+      <table id="table" aria-live="polite">
+        <thead><tr><th>Department</th><th>Contact</th><th>Location</th></tr></thead>
+        <tbody>
+          <tr><td>Registry</td><td>0906 629 4374</td><td>Main Admin</td></tr>
+          <tr><td>Library</td><td>0906 629 4375</td><td>North Wing</td></tr>
+          <tr><td>Student Affairs</td><td>0906 629 4376</td><td>Block C</td></tr>
+          <tr><td>Lecture Halls</td><td>0906 629 4378</td><td>Lecture Complex</td></tr>
+          <tr><td>Health Centre</td><td>0906 629 4380</td><td>Medical Block</td></tr>
+        </tbody>
+      </table>
+
+      <a class="back" href="/index.html">← Back to Home</a>
+    </div>
+  </div>
+
+  <script>
+    function filter(){
+      const q = document.getElementById('q').value.toLowerCase();
+      const rows = document.querySelectorAll('#table tbody tr');
+      rows.forEach(r=>{
+        const text = r.innerText.toLowerCase();
+        r.style.display = text.includes(q) ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
